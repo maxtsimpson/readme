@@ -1,6 +1,7 @@
 const fs = require("fs");
 const axios = require("axios");
 const inquirer = require("inquirer");
+const markdown = require("./utils/generateMarkdown");
 
 const questions = [
     "What is your github username?",
