@@ -18,10 +18,10 @@ undefined
 You can download a copy of the code by using the below command in git bash or your terminal
 
 ssh:
-git clone git@github.com:maxtsimpson/coronaCrash.git
+```git clone git@github.com:maxtsimpson/coronaCrash.git```
 
 https:
-git clone https://github.com/maxtsimpson/coronaCrash.git
+```git clone https://github.com/maxtsimpson/coronaCrash.git```
 
 ## Usage
 undefined
@@ -41,4 +41,4 @@ If you have any questions please email me at the link below. frequently asked qu
 
 null
 
-<img src="https://avatars0.githubusercontent.com/u/59285308?v=4" alt="Profile Pic" width="72" height="72">
+<img src="https://avatars0.githubusercontent.com/u/59285308?v=4" alt="Profile Pic" width="200" height="200">

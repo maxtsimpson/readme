@@ -19,10 +19,10 @@ ${data.installation}
 You can download a copy of the code by using the below command in git bash or your terminal
 
 ssh:
-git clone ${data.ssh_url}
+${data.ssh_url}
 
 https:
-git clone ${data.clone_url}
+${data.clone_url}
 
 ## Usage
 ${data.usage}
@@ -42,7 +42,7 @@ If you have any questions please email me at the link below. frequently asked qu
 
 ${data.profileEmail}
 
-<img src="${data.profilePic}" alt="Profile Pic" width="72" height="72">
+<img src="${data.profilePic}" alt="Profile Pic" width="200" height="200">
 `;
 }
 
