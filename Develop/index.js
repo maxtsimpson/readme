@@ -13,7 +13,7 @@ const questions = [
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, (err) => {
     if (err) throw err;
-    console.log('The file has been saved!');
+    console.log('The readme has been generated!');
   });
 }
 
@@ -44,7 +44,6 @@ let main = async function () {
   addGitHubUserDataToDataObject(gitHubUserData,data);
   addLicenseDataToDataObject(data,licenseType);
 
-  console.log({data});
   let readmeText = generateMarkdown(data);
 
   writeToFile("./Develop/generated/readme.md",readmeText);
@@ -52,7 +51,7 @@ let main = async function () {
 }
 
 let addGitHubRepoDataToDataObject = function (gitHubRepoData,data){
-  console.log({gitHubRepoData});
+
   data.title = gitHubRepoData.name;
   data.description = gitHubRepoData.description;
   data.ssh_url = 
@@ -65,7 +64,7 @@ let addGitHubRepoDataToDataObject = function (gitHubRepoData,data){
   "```";
   data.language = gitHubRepoData.language;
   data.updated_at = gitHubRepoData.updated_at;
-  console.log({data});
+  data.lastupdatedhtml = gitHubRepoData.updated_at.replace(/-/g,"%20")
   return data;
 };
 
@@ -79,10 +78,8 @@ let addGitHubUserDataToDataObject = function (gitHubUserData,data){
 
 let addLicenseDataToDataObject = function(data,licenseType = "MIT") {
   licenseString = fs.readFileSync(`./Develop/utils/${licenseType}license.txt`,"utf-8")
-  console.log({licenseString});
   licenseString = licenseString.replace('[year]',data.updated_at.split("-")[0]);
   licenseString = licenseString.replace('[fullname]',data.name);
-  // console.log(licenseString);
   data.license = licenseString;
 }
 

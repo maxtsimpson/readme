@@ -5,6 +5,7 @@ a project to view the impact of the corona virus on stock markets around the wor
 You can view the project here: https://maxtsimpson.github.io/coronaCrash/
 
 <img src="https://img.shields.io/badge/language-JavaScript-green">
+<img src="https://img.shields.io/badge/last%20updated-2020%2003%2030T14:16:41Z-green?style=plastic&logo=github">
 
 ## Contents
 - [Installation](#Installation)

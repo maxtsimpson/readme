@@ -6,6 +6,7 @@ ${data.description}
 You can view the project here: https://${data.userName}.github.io/${data.title}/
 
 <img src="https://img.shields.io/badge/language-${data.language}-green">
+<img src="https://img.shields.io/badge/last%20updated-${data.lastupdatedhtml}-green?style=plastic&logo=github">
 
 ## Contents
 - [Installation](#Installation)
