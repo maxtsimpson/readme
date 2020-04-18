@@ -51,6 +51,9 @@ let addGitHubRepoDataToDataObject = function (gitHubRepoData,data){
   console.log({gitHubRepoData});
   data.title = gitHubRepoData.name;
   data.description = gitHubRepoData.description;
+  data.ssh_url = gitHubRepoData.ssh_url;
+  data.clone_url = gitHubRepoData.clone_url;
+  data.language = gitHubRepoData.language;
   console.log({data});
   return data;
 };
