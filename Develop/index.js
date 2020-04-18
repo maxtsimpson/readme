@@ -36,27 +36,35 @@ let main = async function () {
 
   data = {};
   let gitHubRepoData = await getGitHubRepoData(userName,repoName)
-  let gitHubUserData = await getGitHubRepoData(userName,repoName)
-  data = addGitHubRepoDataToDataObject(gitHubRepoData,data);
-  data = addGitHubUserDataToDataObject(gitHubUserData,data);
+  let gitHubUserData = await getGitHubUserData(userName)
+  addGitHubRepoDataToDataObject(gitHubRepoData,data);
+  addGitHubUserDataToDataObject(gitHubUserData,data);
 
+  console.log({data});
   let readmeText = generateMarkdown(data);
 
-  writeToFile("readme.md",readmeText);
+  writeToFile("./Develop/generated/readme.md",readmeText);
 
 }
 
-let addGitHubRepoDataToDataObject = function (gitHubData,data){
-  data.title = gitHubData.name;
-  data.description = gitHubData.description;
+let addGitHubRepoDataToDataObject = function (gitHubRepoData,data){
+  console.log({gitHubRepoData});
+  data.title = gitHubRepoData.name;
+  data.description = gitHubRepoData.description;
+  console.log({data});
   return data;
 };
 
-let addGitHubUserDataToDataObject = function (gitHubData,data){
-  data.profilePic = gitHubData.avatar_url;
-  data.profileEmail = gitHubData.email;
+let addGitHubUserDataToDataObject = function (gitHubUserData,data){
+  data.profilePic = gitHubUserData.avatar_url;
+  data.profileEmail = gitHubUserData.email;
+  data.userName = gitHubUserData.login;
   return data;
 };
+
+let addLicenseDataToDataObject = function(data) {
+
+}
 
 let askQuestion = async function (question) {
   return await inquirer.prompt({

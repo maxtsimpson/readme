@@ -2,8 +2,8 @@ function generateMarkdown(data) {
   return `
 # ${data.title}
 ${data.description}
+You can view the project here: https://${data.userName}.github.io/${data.title}/
 ## Contents
-${data.contents}
 - [Installation](#Installation)
 - [Usage](#Usage)
 - [License](#License)
@@ -12,6 +12,13 @@ ${data.contents}
 - [Questions](#Questions)
 ## Installation
 ${data.installation}
+You can download a copy of the code by using the below command in git bash or your terminal
+ssh:
+git clone ${data.ssh_url}
+
+https:
+git clone ${data.clone_url}
+
 ## Usage
 ${data.usage}
 ## License
