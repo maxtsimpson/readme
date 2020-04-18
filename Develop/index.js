@@ -6,7 +6,8 @@ const generateMarkdown = require("./utils/generateMarkdown");
 
 const questions = [
   { answerName: "userName", text: "What is your github username?", answer: null },
-  { answerName: "repoName", question: "What is your repo name?", answer: null }
+  { answerName: "repoName", question: "What is your repo name?", answer: null },
+  { answerName: "licenseType", question: "What sort of license do you want to use", answer: null }
 ];
 
 function writeToFile(fileName, data) {
@@ -30,6 +31,8 @@ let main = async function () {
         userName = currentQuestion.answer;
       } else if (currentQuestion.answerName === "repoName") {
         repoName = currentQuestion.answer;
+      } else if (currentQuestion.answerName === "licenseType") {
+        licenseType = currentQuestion.answer;
       }
     }
   }
@@ -39,6 +42,7 @@ let main = async function () {
   let gitHubUserData = await getGitHubUserData(userName)
   addGitHubRepoDataToDataObject(gitHubRepoData,data);
   addGitHubUserDataToDataObject(gitHubUserData,data);
+  addLicenseDataToDataObject(data,licenseType);
 
   console.log({data});
   let readmeText = generateMarkdown(data);
@@ -60,6 +64,7 @@ let addGitHubRepoDataToDataObject = function (gitHubRepoData,data){
   "git clone " + gitHubRepoData.clone_url +
   "```";
   data.language = gitHubRepoData.language;
+  data.updated_at = gitHubRepoData.updated_at;
   console.log({data});
   return data;
 };
@@ -68,11 +73,17 @@ let addGitHubUserDataToDataObject = function (gitHubUserData,data){
   data.profilePic = gitHubUserData.avatar_url;
   data.profileEmail = gitHubUserData.email;
   data.userName = gitHubUserData.login;
+  data.name = gitHubUserData.name;
   return data;
 };
 
-let addLicenseDataToDataObject = function(data) {
-
+let addLicenseDataToDataObject = function(data,licenseType = "MIT") {
+  licenseString = fs.readFileSync(`./Develop/utils/${licenseType}license.txt`,"utf-8")
+  console.log({licenseString});
+  licenseString = licenseString.replace('[year]',data.updated_at.split("-")[0]);
+  licenseString = licenseString.replace('[fullname]',data.name);
+  // console.log(licenseString);
+  data.license = licenseString;
 }
 
 let askQuestion = async function (question) {
@@ -80,10 +91,6 @@ let askQuestion = async function (question) {
     message: question.text,
     name: question.answerName
   })
-};
-
-let createDataObject = function () {
-  data = 1
 };
 
 let getGitHubRepoData = async function (userName, repoName) {

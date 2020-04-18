@@ -15,7 +15,7 @@ You can view the project here: https://${data.userName}.github.io/${data.title}/
 - [Tests](#Tests)
 - [Questions](#Questions)
 ## Installation
-${data.installation}
+
 You can download a copy of the code by using the below command in git bash or your terminal
 
 ssh:
@@ -40,7 +40,7 @@ This section will contain instructions on running those tests
 ## Questions
 If you have any questions please email me at the link below. frequently asked questions will be added to this section with answers
 
-${data.profileEmail}
+<a href="mailto:maxsimpson95@gmail.com">maxsimpson95@gmail.com</a>
 
 <img src="${data.profilePic}" alt="Profile Pic" width="200" height="200">
 `;
