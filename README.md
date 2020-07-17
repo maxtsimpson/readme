@@ -66,5 +66,3 @@ This section will contain instructions on running those tests
 If you have any questions please email me at the link below. frequently asked questions will be added to this section with answers
 
 <a href="mailto:maxsimpson95@gmail.com">maxsimpson95@gmail.com</a>
-
-<img src="https://avatars0.githubusercontent.com/u/59285308?v=4" alt="Profile Pic" width="200" height="200">
